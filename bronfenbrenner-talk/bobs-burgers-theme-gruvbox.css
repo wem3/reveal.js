@@ -1,24 +1,23 @@
 /**
- * Bob's Burgers theme for reveal.js - Tina Belcher Image Palette
- * Created from the provided image for a more authentic show feel.
+ * Bob's Burgers theme for reveal.js
+ * Based on the Belcher family color palette
  */
 
+/* Color palette extracted from image */
 :root {
-  /* Backgrounds & Text (from the image's overall tone) */
-  --bb-dark-bg: #222222;      /* Deep charcoal from Tina's hair/lines */
-  --bb-light-bg: #3a3a3a;     /* Slightly lighter grey for elements */
-  --bb-lighter-bg: #555555;   /* Mid-tone grey */
-  --bb-text-primary: #ffffff; /* Clean white for primary text */
-  --bb-text-secondary: #e0e0e0; /* Off-white for secondary text */
+  --bb-dark-bg: #2c2c2c;
+  --bb-light-bg: #3a3a3a;
+  --bb-lighter-bg: #4a4a4a;
+  --bb-text-primary: #f5f5f5;
+  --bb-text-secondary: #d0d0d0;
   
-  /* Vibrant Character/Layer Colors from the image */
-  --bb-tina-skin: #f3e9c9;    /* Tina's skin tone (neutral but distinct) */
-  --bb-tina-shirt: #c0e0eb;   /* Tina's light blue shirt */
-  --bb-red: #ea2354;         /* Prominent bright red/magenta from bands */
-  --bb-blue: #02a4e2;        /* Vibrant blue from bands */
-  --bb-yellow: #f8c30c;      /* Bright, punchy yellow from bands */
-  --bb-dark-pink: #c9025e;   /* Darker pink/magenta */
-  --bb-dark-blue: #0274b7;   /* Darker blue */
+  /* Character colors */
+  --bb-pink: #ff6b9d;        /* Linda's shirt */
+  --bb-yellow: #ffd93d;      /* Gene's shirt */
+  --bb-blue: #64b5f6;        /* Tina's shirt */
+  --bb-green: #81c784;       /* Louise's dress */
+  --bb-orange: #ff9800;      /* Accent/burger */
+  --bb-cream: #f5deb3;       /* Neutral accent */
 }
 
 /*********************************************
@@ -64,24 +63,24 @@
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: var(--bb-red); /* Using the vibrant red for primary headers */
+  color: var(--bb-pink);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700; /* Bold, but not overly so */
+  font-weight: 700;
   line-height: 1.2;
   letter-spacing: normal;
   text-transform: none;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4); /* Softer shadow */
+  text-shadow: none;
   word-wrap: break-word;
 }
 
 .reveal h1 {
   font-size: 2.5em;
-  color: var(--bb-yellow); /* H1 stands out with yellow */
+  color: var(--bb-yellow);
 }
 
 .reveal h2 {
   font-size: 1.6em;
-  color: var(--bb-red);
+  color: var(--bb-pink);
 }
 
 .reveal h3 {
@@ -91,7 +90,7 @@
 
 .reveal h4 {
   font-size: 1em;
-  color: var(--bb-dark-pink); /* Using a darker accent for H4 */
+  color: var(--bb-green);
 }
 
 /*********************************************
@@ -105,12 +104,12 @@
 .reveal strong,
 .reveal b {
   font-weight: bold;
-  color: var(--bb-red); /* Using red for strong emphasis */
+  color: var(--bb-orange);
 }
 
 .reveal em {
   font-style: italic;
-  color: var(--bb-tina-shirt); /* Tina's shirt blue for italic */
+  color: var(--bb-cream);
 }
 
 /*********************************************
@@ -119,15 +118,13 @@
 .reveal a {
   color: var(--bb-blue);
   text-decoration: none;
-  font-weight: bold;
   transition: color 0.15s ease;
-  border-bottom: 2px solid rgba(2, 164, 226, 0.3); 
 }
 
 .reveal a:hover {
-  color: var(--bb-yellow);
+  color: var(--bb-pink);
   text-shadow: none;
-  border-bottom: 2px solid var(--bb-yellow);
+  border: none;
 }
 
 .reveal .roll span:after {
@@ -151,7 +148,7 @@
 
 .reveal ul li::before {
   content: "▸";
-  color: var(--bb-yellow); /* Yellow bullet points */
+  color: var(--bb-pink);
   font-weight: bold;
   display: inline-block;
   width: 1em;
@@ -196,8 +193,8 @@
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.1);
-  border-color: var(--bb-red);
-  box-shadow: 0 0 20px rgba(234, 35, 84, 0.5);
+  border-color: var(--bb-pink);
+  box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
 }
 
 /*********************************************
@@ -216,17 +213,16 @@
   background: var(--bb-light-bg);
   border: 2px solid var(--bb-lighter-bg);
   border-radius: 8px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .reveal code {
   font-family: "Courier New", monospace;
   text-transform: none;
-  background: var(--bb-lighter-bg); 
+  background: var(--bb-light-bg);
   padding: 2px 6px;
   border-radius: 3px;
-  color: var(--bb-yellow); /* Code text in yellow for visibility */
-  font-weight: bold;
+  color: var(--bb-green);
 }
 
 .reveal pre code {
@@ -250,8 +246,8 @@
   padding: 15px 20px;
   font-style: italic;
   background: var(--bb-light-bg);
-  border-left: 5px solid var(--bb-red);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-left: 5px solid var(--bb-pink);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
 
 .reveal blockquote p:first-child,
@@ -270,9 +266,8 @@
 
 .reveal table th {
   font-weight: bold;
-  background: var(--bb-lighter-bg);
+  background: var(--bb-light-bg);
   color: var(--bb-yellow);
-  border-bottom: 2px solid var(--bb-yellow);
 }
 
 .reveal table th,
@@ -301,13 +296,12 @@
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
-  background: rgba(0, 0, 0, 0.4);
-  color: var(--bb-red); /* Progress bar in red */
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--bb-pink);
 }
 
 .reveal .progress span {
-  background: var(--bb-red);
-  box-shadow: 0 0 10px var(--bb-red); 
+  background: var(--bb-pink);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
 }
 
@@ -315,18 +309,17 @@
  * CONTROLS
  *********************************************/
 .reveal .controls {
-  color: var(--bb-red); /* Controls in red */
+  color: var(--bb-pink);
 }
 
 /*********************************************
  * SLIDE NUMBER
  *********************************************/
 .reveal .slide-number {
-  color: var(--bb-text-primary);
-  background-color: var(--bb-lighter-bg);
+  color: var(--bb-text-secondary);
+  background-color: var(--bb-light-bg);
   padding: 5px 10px;
   border-radius: 3px;
-  font-weight: bold;
 }
 
 /*********************************************
@@ -336,73 +329,68 @@
 /* Highlight boxes for important content */
 .highlight {
   background: var(--bb-light-bg);
-  border-left: 5px solid var(--bb-yellow); /* Yellow highlight */
+  border-left: 5px solid var(--bb-orange);
   padding: 20px;
   margin: 20px 0;
 }
 
-/* Color-coded boxes - using the image's vibrant colors */
-.box-red {
-  background: rgba(234, 35, 84, 0.25);
-  border: 2px solid var(--bb-red);
-  padding: 15px;
-  border-radius: 5px;
-}
-
-.box-blue {
-  background: rgba(2, 164, 226, 0.25);
-  border: 2px solid var(--bb-blue);
+/* Color-coded boxes */
+.box-pink {
+  background: rgba(255, 107, 157, 0.15);
+  border: 2px solid var(--bb-pink);
   padding: 15px;
   border-radius: 5px;
 }
 
 .box-yellow {
-  background: rgba(248, 195, 12, 0.25);
+  background: rgba(255, 217, 61, 0.15);
   border: 2px solid var(--bb-yellow);
   padding: 15px;
   border-radius: 5px;
 }
 
-.box-dark-pink {
-  background: rgba(201, 2, 94, 0.25);
-  border: 2px solid var(--bb-dark-pink);
+.box-blue {
+  background: rgba(100, 181, 246, 0.15);
+  border: 2px solid var(--bb-blue);
   padding: 15px;
   border-radius: 5px;
 }
 
-.box-dark-blue {
-  background: rgba(2, 116, 183, 0.25);
-  border: 2px solid var(--bb-dark-blue);
+.box-green {
+  background: rgba(129, 199, 132, 0.15);
+  border: 2px solid var(--bb-green);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.box-orange {
+  background: rgba(255, 152, 0, 0.15);
+  border: 2px solid var(--bb-orange);
   padding: 15px;
   border-radius: 5px;
 }
 
 /* Text color utilities */
-.text-red { color: var(--bb-red); }
-.text-blue { color: var(--bb-blue); }
+.text-pink { color: var(--bb-pink); }
 .text-yellow { color: var(--bb-yellow); }
-.text-dark-pink { color: var(--bb-dark-pink); }
-.text-dark-blue { color: var(--bb-dark-blue); }
-.text-tina-shirt { color: var(--bb-tina-shirt); }
-
+.text-blue { color: var(--bb-blue); }
+.text-green { color: var(--bb-green); }
+.text-orange { color: var(--bb-orange); }
+.text-cream { color: var(--bb-cream); }
 
 /* Fragment highlighting */
-.reveal .fragment.highlight-current-red.current-fragment {
-  color: var(--bb-red);
-  font-weight: bold;
-}
-
-.reveal .fragment.highlight-current-blue.current-fragment {
-  color: var(--bb-blue);
-  font-weight: bold;
+.reveal .fragment.highlight-current-pink.current-fragment {
+  color: var(--bb-pink);
 }
 
 .reveal .fragment.highlight-current-yellow.current-fragment {
   color: var(--bb-yellow);
-  font-weight: bold;
 }
 
-.reveal .fragment.highlight-current-dark-pink.current-fragment {
-  color: var(--bb-dark-pink);
-  font-weight: bold;
+.reveal .fragment.highlight-current-blue.current-fragment {
+  color: var(--bb-blue);
+}
+
+.reveal .fragment.highlight-current-green.current-fragment {
+  color: var(--bb-green);
 }

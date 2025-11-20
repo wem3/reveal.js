@@ -1,57 +1,76 @@
 /**
- * Bob's Burgers theme for reveal.js - Tina Belcher Image Palette
- * Created from the provided image for a more authentic show feel.
+ * Gruvbox-Burgers Hybrid Theme for reveal.js
+ * Dark Gruvbox base with vibrant Bob's Burgers accent colors
  */
 
 :root {
-  /* Backgrounds & Text (from the image's overall tone) */
-  --bb-dark-bg: #222222;      /* Deep charcoal from Tina's hair/lines */
-  --bb-light-bg: #3a3a3a;     /* Slightly lighter grey for elements */
-  --bb-lighter-bg: #555555;   /* Mid-tone grey */
-  --bb-text-primary: #ffffff; /* Clean white for primary text */
-  --bb-text-secondary: #e0e0e0; /* Off-white for secondary text */
+  /* Gruvbox-inspired backgrounds */
+  --bg-dark: #1d2021;
+  --bg-medium: #282828;
+  --bg-light: #3c3836;
+  --bg-lighter: #504945;
   
-  /* Vibrant Character/Layer Colors from the image */
-  --bb-tina-skin: #f3e9c9;    /* Tina's skin tone (neutral but distinct) */
-  --bb-tina-shirt: #c0e0eb;   /* Tina's light blue shirt */
-  --bb-red: #ea2354;         /* Prominent bright red/magenta from bands */
-  --bb-blue: #02a4e2;        /* Vibrant blue from bands */
-  --bb-yellow: #f8c30c;      /* Bright, punchy yellow from bands */
-  --bb-dark-pink: #c9025e;   /* Darker pink/magenta */
-  --bb-dark-blue: #0274b7;   /* Darker blue */
+  /* Text colors */
+  --text-primary: #ebdbb2;
+  --text-secondary: #d5c4a1;
+  --text-muted: #a89984;
+  
+  /* Vibrant accent colors (Bob's Burgers inspired) */
+  --pink: #e42263;
+  --green: #35a80e;
+  --blue: #2968bb;
+  --yellow: #f3e708;
+  --orange: #fe9f19;
+  --purple: #b729d6;
+  --red: #ea2222;
+  --aqua: #23d7a4;
 }
 
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 .reveal-viewport {
-  background: var(--bb-dark-bg);
-  background-color: var(--bb-dark-bg);
+  background: var(--bg-dark);
+  background-color: var(--bg-dark);
 }
 
 .reveal {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 40px;
   font-weight: normal;
-  color: var(--bb-text-primary);
+  color: var(--text-primary);
 }
 
 .reveal ::selection {
-  color: var(--bb-dark-bg);
-  background: var(--bb-yellow);
+  color: var(--bg-dark);
+  background: var(--yellow);
   text-shadow: none;
 }
 
 .reveal ::-moz-selection {
-  color: var(--bb-dark-bg);
-  background: var(--bb-yellow);
+  color: var(--bg-dark);
+  background: var(--yellow);
   text-shadow: none;
+}
+
+.reveal section {
+  position: relative;
 }
 
 .reveal .slides section,
 .reveal .slides section > section {
   line-height: 1.3;
   font-weight: inherit;
+  transition: all 0.75s ease-in-out !important;
+  /*overflow: hidden;*/
+}
+
+#storm-intro {
+  transition: opacity 2s 0.5s ease-in-out !important;
+}
+
+#scope {
+  transition: opacity 2s ease-in-out !important;
 }
 
 /*********************************************
@@ -64,75 +83,120 @@
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: var(--bb-red); /* Using the vibrant red for primary headers */
+  color: var(--yellow);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700; /* Bold, but not overly so */
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
   text-transform: none;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4); /* Softer shadow */
+  text-shadow: none;
   word-wrap: break-word;
 }
 
 .reveal h1 {
   font-size: 2.5em;
-  color: var(--bb-yellow); /* H1 stands out with yellow */
+  color: var(--pink);
 }
 
 .reveal h2 {
   font-size: 1.6em;
-  color: var(--bb-red);
+  color: var(--yellow);
 }
 
 .reveal h3 {
   font-size: 1.3em;
-  color: var(--bb-blue);
+  color: var(--blue);
 }
 
 .reveal h4 {
   font-size: 1em;
-  color: var(--bb-dark-pink); /* Using a darker accent for H4 */
+  color: var(--green);
 }
 
 /*********************************************
  * TEXT
  *********************************************/
 .reveal p {
-  margin: 20px 0;
+  margin: 10px 0;
   line-height: 1.5;
 }
 
 .reveal strong,
 .reveal b {
   font-weight: bold;
-  color: var(--bb-red); /* Using red for strong emphasis */
+  color: var(--orange);
 }
 
 .reveal em {
   font-style: italic;
-  color: var(--bb-tina-shirt); /* Tina's shirt blue for italic */
+  /*color: var(--blue);*/
 }
 
+/*********************************************
+ * CUSTOM SLIDE CLASSES 
+ *********************************************/
+
+.reveal .cite {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 0.6em;
+  color: #23d7a4;
+  font-style: italic;
+  z-index: 100;
+}
+
+.reveal .works-cited {
+  text-align: left;
+  font-size: 0.5em;  /* About 16px if base is 32px */
+  line-height: 1.4;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.reveal .works-cited p {
+  margin-bottom: 1em;
+  padding-left: 2em;
+  text-indent: -2em;  /* Creates hanging indent */
+}
+
+.reveal .systems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  transform: scale(0.8);
+}
+
+.reveal .system-box {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.reveal .system-box h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.reveal .system-box p {
+  font-size: 0.8em;
+  line-height: 1.3;
+}
 /*********************************************
  * LINKS
  *********************************************/
 .reveal a {
-  color: var(--bb-blue);
+  color: var(--blue);
   text-decoration: none;
-  font-weight: bold;
   transition: color 0.15s ease;
-  border-bottom: 2px solid rgba(2, 164, 226, 0.3); 
 }
 
 .reveal a:hover {
-  color: var(--bb-yellow);
+  color: var(--orange);
   text-shadow: none;
-  border-bottom: 2px solid var(--bb-yellow);
-}
-
-.reveal .roll span:after {
-  color: #fff;
-  background: var(--bb-blue);
+  border: none;
 }
 
 /*********************************************
@@ -150,8 +214,8 @@
 }
 
 .reveal ul li::before {
-  content: "▸";
-  color: var(--bb-yellow); /* Yellow bullet points */
+  content: "⋄";
+  color: var(--pink);
   font-weight: bold;
   display: inline-block;
   width: 1em;
@@ -190,14 +254,20 @@
   background: transparent;
 }
 
+/*.reveal img,
+.reveal svg {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}*/
+
 .reveal a img {
-  transition: all 0.15s linear;
+  transition: all 1s ease;
 }
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.1);
-  border-color: var(--bb-red);
-  box-shadow: 0 0 20px rgba(234, 35, 84, 0.5);
+  box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
 }
 
 /*********************************************
@@ -213,8 +283,8 @@
   font-family: "Courier New", monospace;
   line-height: 1.4em;
   word-wrap: break-word;
-  background: var(--bb-light-bg);
-  border: 2px solid var(--bb-lighter-bg);
+  background: var(--bg-medium);
+  border: 2px solid var(--bg-lighter);
   border-radius: 8px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -222,11 +292,10 @@
 .reveal code {
   font-family: "Courier New", monospace;
   text-transform: none;
-  background: var(--bb-lighter-bg); 
+  background: var(--bg-medium);
   padding: 2px 6px;
   border-radius: 3px;
-  color: var(--bb-yellow); /* Code text in yellow for visibility */
-  font-weight: bold;
+  color: var(--green);
 }
 
 .reveal pre code {
@@ -235,8 +304,8 @@
   overflow: auto;
   max-height: 600px;
   word-wrap: normal;
-  background: var(--bb-light-bg);
-  color: var(--bb-text-primary);
+  background: var(--bg-medium);
+  color: var(--text-primary);
 }
 
 /*********************************************
@@ -249,8 +318,8 @@
   margin: 20px auto;
   padding: 15px 20px;
   font-style: italic;
-  background: var(--bb-light-bg);
-  border-left: 5px solid var(--bb-red);
+  background: var(--bg-medium);
+  border-left: 5px solid var(--yellow);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -270,16 +339,15 @@
 
 .reveal table th {
   font-weight: bold;
-  background: var(--bb-lighter-bg);
-  color: var(--bb-yellow);
-  border-bottom: 2px solid var(--bb-yellow);
+  background: var(--bg-light);
+  color: var(--yellow);
 }
 
 .reveal table th,
 .reveal table td {
   text-align: left;
   padding: 0.5em 1em;
-  border-bottom: 1px solid var(--bb-lighter-bg);
+  border-bottom: 1px solid var(--bg-lighter);
 }
 
 .reveal table th[align="center"],
@@ -301,13 +369,12 @@
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
-  background: rgba(0, 0, 0, 0.4);
-  color: var(--bb-red); /* Progress bar in red */
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--pink);
 }
 
 .reveal .progress span {
-  background: var(--bb-red);
-  box-shadow: 0 0 10px var(--bb-red); 
+  background: var(--pink);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
 }
 
@@ -315,94 +382,108 @@
  * CONTROLS
  *********************************************/
 .reveal .controls {
-  color: var(--bb-red); /* Controls in red */
+  color: var(--green);
 }
 
 /*********************************************
  * SLIDE NUMBER
  *********************************************/
 .reveal .slide-number {
-  color: var(--bb-text-primary);
-  background-color: var(--bb-lighter-bg);
+  color: var(--text-secondary);
+  background-color: var(--bg-medium);
   padding: 5px 10px;
   border-radius: 3px;
-  font-weight: bold;
 }
 
 /*********************************************
  * CUSTOM UTILITIES
  *********************************************/
 
-/* Highlight boxes for important content */
+/* Highlight box */
 .highlight {
-  background: var(--bb-light-bg);
-  border-left: 5px solid var(--bb-yellow); /* Yellow highlight */
+  background: var(--bg-medium);
+  border-left: 5px solid var(--orange);
   padding: 20px;
   margin: 20px 0;
 }
 
-/* Color-coded boxes - using the image's vibrant colors */
-.box-red {
-  background: rgba(234, 35, 84, 0.25);
-  border: 2px solid var(--bb-red);
+/* Color-coded boxes */
+.box-pink {
+  background: rgba(255, 107, 157, 0.15);
+  border: 2px solid var(--pink);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.box-green {
+  background: rgba(184, 187, 38, 0.15);
+  border: 2px solid var(--green);
   padding: 15px;
   border-radius: 5px;
 }
 
 .box-blue {
-  background: rgba(2, 164, 226, 0.25);
-  border: 2px solid var(--bb-blue);
+  background: rgba(131, 165, 152, 0.15);
+  border: 2px solid var(--blue);
   padding: 15px;
   border-radius: 5px;
 }
 
 .box-yellow {
-  background: rgba(248, 195, 12, 0.25);
-  border: 2px solid var(--bb-yellow);
+  background: rgba(250, 189, 47, 0.15);
+  border: 2px solid var(--yellow);
   padding: 15px;
   border-radius: 5px;
 }
 
-.box-dark-pink {
-  background: rgba(201, 2, 94, 0.25);
-  border: 2px solid var(--bb-dark-pink);
+.box-orange {
+  background: rgba(254, 128, 25, 0.15);
+  border: 2px solid var(--orange);
   padding: 15px;
   border-radius: 5px;
 }
 
-.box-dark-blue {
-  background: rgba(2, 116, 183, 0.25);
-  border: 2px solid var(--bb-dark-blue);
+.box-purple {
+  background: rgba(177, 98, 134, 0.15);
+  border: 2px solid var(--purple);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.box-red {
+  background: rgba(251, 73, 52, 0.15);
+  border: 2px solid var(--red);
   padding: 15px;
   border-radius: 5px;
 }
 
 /* Text color utilities */
-.text-red { color: var(--bb-red); }
-.text-blue { color: var(--bb-blue); }
-.text-yellow { color: var(--bb-yellow); }
-.text-dark-pink { color: var(--bb-dark-pink); }
-.text-dark-blue { color: var(--bb-dark-blue); }
-.text-tina-shirt { color: var(--bb-tina-shirt); }
-
+.text-pink { color: var(--pink); }
+.text-green { color: var(--green); }
+.text-blue { color: var(--blue); }
+.text-yellow { color: var(--yellow); }
+.text-orange { color: var(--orange); }
+.text-purple { color: var(--purple); }
+.text-red { color: var(--red); }
+.text-aqua { color: var(--aqua); }
 
 /* Fragment highlighting */
-.reveal .fragment.highlight-current-red.current-fragment {
-  color: var(--bb-red);
-  font-weight: bold;
+.reveal .fragment.highlight-current-pink.current-fragment {
+  color: var(--pink);
+}
+
+.reveal .fragment.highlight-current-green.current-fragment {
+  color: var(--green);
 }
 
 .reveal .fragment.highlight-current-blue.current-fragment {
-  color: var(--bb-blue);
-  font-weight: bold;
+  color: var(--blue);
 }
 
 .reveal .fragment.highlight-current-yellow.current-fragment {
-  color: var(--bb-yellow);
-  font-weight: bold;
+  color: var(--yellow);
 }
 
-.reveal .fragment.highlight-current-dark-pink.current-fragment {
-  color: var(--bb-dark-pink);
-  font-weight: bold;
+.reveal .fragment.highlight-current-orange.current-fragment {
+  color: var(--orange);
 }
