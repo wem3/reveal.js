@@ -16,14 +16,22 @@
   --text-muted: #a89984;
   
   /* Vibrant accent colors (Bob's Burgers inspired) */
-  --pink: #e42263;
+  --pink: #ee286a;
   --green: #35a80e;
-  --blue: #2968bb;
+  --blue: #1f80c1;
   --yellow: #f3e708;
   --orange: #fe9f19;
   --purple: #b729d6;
   --red: #ea2222;
   --aqua: #23d7a4;
+  
+  /* Transparent for Circles*/
+  --pink-trans: rgba(255, 107, 157, 0.7);
+  --green-trans: rgba(80, 250, 123, 0.7);
+  --purple-trans: rgba(189, 147, 249, 0.7);
+  --yellow-trans: rgba(241, 250, 140, 0.7);
+  --orange-trans: rgba(255, 184, 108, 0.7);
+  --blue-trans: rgba(139, 233, 253, 0.7);
 }
 
 /*********************************************
@@ -136,12 +144,17 @@
  * CUSTOM SLIDE CLASSES 
  *********************************************/
 
+ /* Container for animations - no scaling needed */
+.reveal .animation-wrapper {
+  /* Removed transform: scale() hack - elements sized properly now */
+}
+
 .reveal .cite {
   position: absolute;
   bottom: 5px;
   right: 5px;
   font-size: 0.6em;
-  color: #23d7a4;
+  color: var(--aqua);
   font-style: italic;
   z-index: 100;
 }
@@ -163,25 +176,24 @@
 .reveal .systems-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 20px;
   padding: 0;
-  max-width: 900px;
+  max-width: 850px;
   margin: 0 auto;
-  transform: scale(0.8);
 }
 
 .reveal .system-box {
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
 }
 
 .reveal .system-box h3 {
-  margin-bottom: 10px;
-  font-size: 1.2em;
+  margin-bottom: 8px;
+  font-size: 1em;
 }
 
 .reveal .system-box p {
-  font-size: 0.8em;
+  font-size: 0.7em;
   line-height: 1.3;
 }
 /*********************************************
